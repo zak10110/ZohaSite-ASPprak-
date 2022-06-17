@@ -1,0 +1,11 @@
+﻿body {
+    background-color:rgb(255, 255, 255);
+}
+.header {
+    background-color:rgb(210, 107, 255);
+}
+.header_conteyner {
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    margin: auto;
+}
