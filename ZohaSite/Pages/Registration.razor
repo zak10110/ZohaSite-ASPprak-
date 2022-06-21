@@ -1,0 +1,40 @@
+﻿@page "/Registration"
+
+   <div class="container">
+    <h1>Login</h1>
+    <hr>
+
+    <label for="email"><b>Login</b></label>
+    <input @bind-value="login" type="text" placeholder="Enter Login" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input @bind-value="password" type="password" placeholder="Enter Password" name="psw" required>
+    <hr>
+    <button @onclick="IsAdmin" type="submit" class="btn btn-dark btnlogin">Login</button>
+  </div>
+
+ 
+
+
+@code {
+
+    string login = string.Empty;
+    string password = string.Empty;
+
+
+    public void IsAdmin()
+    {
+        
+
+
+
+
+    }
+
+
+
+
+
+
+
+}
