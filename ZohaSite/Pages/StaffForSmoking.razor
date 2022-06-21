@@ -1,26 +1,28 @@
-﻿
-@page "/Smoking"
+﻿@page "/Smoking"
 
-<link href="css/product.css" rel="stylesheet" />
+
 <div class="mainscreen">
-@foreach (var item in ProductList.productcs)
-{
+    @foreach (var item in ProductList.productcs)
+    {
+        if (item.Id == 2)
+        {
+            <div class="card">
+                <div class="picturBox">
+                    <img class="picture" src="@item.Img">
 
-    <div class="card">
-        <div class="picturBox">
-            <img class="picture" src="@item.Img">
+                </div>
+                <div class="btnNnfText">
+                    <h5 class="text">@item.Name</h5>
+                    <button class="btn btn-dark">Add To Basket</button>
+                    <h5 class="btnNnfText">@item.Price</h5>
+                </div>
 
-        </div>
-        <div class="btnNnfText">
-            <h5 class="text">@item.Name</h5>
-            <button class="btn btn-dark">Add To Basket</button>
-            <h5 class="btnNnfText">@item.Price</h5>
-        </div>
+            </div>
+        }
 
-    </div>
-   
 
-}
+
+    }
 </div>
 
 
