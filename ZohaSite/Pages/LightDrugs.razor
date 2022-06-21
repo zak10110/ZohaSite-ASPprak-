@@ -1,43 +1,33 @@
-﻿@inherits LayoutComponentBase
+﻿
+@page "/LightDrugs"
 
-<PageTitle>ZohaSite</PageTitle>
-<link href="css/mainpage.css" rel="stylesheet" />
-<div>
-    @*<div class="sidebar">
-    <NavMenu />
-    </div>*@
-    <div class="header">
-        <div class="logo">
-            <h1 class="textlogomargin">Fateev's Drugs</h1>
+<link href="css/product.css" rel="stylesheet" />
+<div class="mainscreen">
+@foreach (var item in @productcs)
+{
+
+    <div class="card">
+        <div class="picturBox">
+            <img class="picture" src="@item.Img">
+
         </div>
-        <div class="header_conteyner">
-              <NavLink href="/Products">
-           <button class="btn btn-dark btnpading">All</button>
-              </NavLink>
-              <NavLink href="/LightDrugs">
-           <button class="btn btn-dark">Light Drugs</button>
-              </NavLink>
-              <NavLink href="/Pcihodel">
-           <button class="btn btn-dark">Psychotropics</button>
-              </NavLink>
-              <NavLink href="/Smoking">
-           <button class="btn btn-dark">Some Stuff For Smoking</button>
-              </NavLink>
-           <button class="btn btn-dark btnBasket">Basket</button>
+        <div class="btnNnfText">
+            <h5 class="text">@item.Name</h5>
+            <button class="btn btn-dark">Add To Basket</button>
+            <h5 class="btnNnfText">@item.Price</h5>
         </div>
-        
+
     </div>
-    <main>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+    
+}
 </div>
+
+
 
 @code{
 
-
+    
 
     public static List<Productc> productcs = new List<Productc>(){
         new Productc(1,"Mashrum","50$","https://i.pinimg.com/236x/24/03/c1/2403c16257bfc1ee026a61409f9722e1.jpg"),
@@ -65,7 +55,6 @@
         new Productc(3,"Weed","20$","https://thefader-res.cloudinary.com/private_images/w_1440,c_limit,f_auto,q_auto:best/WEED-WEBSITE-MAIN_vrocly/best-weed-smoking-tips.jpg"),
         new Productc(3,"Weed","20$","https://play-lh.googleusercontent.com/jkU2nz-D5vlKyS2Q_GPSW8bFMZ_6Q4HFkaOQnnQST2oH028tqmOBW8CyuszqU1zF5vhq"),
     };
-    
 
 
 

@@ -1,11 +1,47 @@
 ﻿body {
-    background-color:rgb(255, 255, 255);
+    background-color: #8dbbb3;
 }
+
 .header {
-    background-color:rgb(210, 107, 255);
+    background-color: #8dbbb3;
 }
+
 .header_conteyner {
-    background-color: rgb(255, 255, 255);
+    background-color: #8dbbb3;
     width: 80%;
     margin: auto;
+}
+
+.logo {
+    width:17%;
+    background: linear-gradient(to right, #00ffcc 0%, #ffccff 67%);
+    border-radius: 50px;
+    margin-top: 10px;
+    background-size: 200% 100% !important;
+    animation: move 10s ease infinite;
+}
+@keyframes move {
+    0% {
+        background-position: 0 0
+    }
+
+    50% {
+        background-position: 100% 0
+    }
+
+    100% {
+        background-position: 0 0
+    }
+}
+.textlogomargin {
+    margin-left: 8%;
+}
+
+.btnBasket {
+    margin-left: 50%;
+}
+
+.btnpading {
+    margin-top: 10px;
+    margin-left: 10%;
 }

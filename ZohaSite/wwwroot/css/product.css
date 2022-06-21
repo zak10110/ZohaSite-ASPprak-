@@ -1,0 +1,53 @@
+﻿.card {
+    margin-left:30px;
+    width: 250px;
+    height: 350px;
+    background: linear-gradient(to right, #00ffcc 0%, #ffccff 67%);
+    margin-top: 100px;
+    background-size: 200% 100% !important;
+    animation: move 10s ease infinite;
+    border-radius: 20px;
+  
+}
+
+.mainscreen {
+    width: 100%;
+    height: 80%;
+    margin-top: 100px;
+    display: flex;
+    flex-wrap:wrap;
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0
+    }
+
+    50% {
+        background-position: 100% 0
+    }
+
+    100% {
+        background-position: 0 0
+    }
+}
+
+.picturBox{
+    margin-left:5%;
+    margin-top:5%;
+    width:90%;
+    height:50%;
+}
+.picture {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+.btnNnfText {
+    margin-left:25%;
+    margin-top:10%;
+}
+.text {
+    margin-left:17%;
+
+}
