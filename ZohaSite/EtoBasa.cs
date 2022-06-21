@@ -7,10 +7,7 @@ namespace ZohaSite
         public static void CreateDataBase()
         {
 
-            using (DBContext db = new DBContext())
-            {
-                db.SaveChanges();
-            }
+     
 
         }
 
