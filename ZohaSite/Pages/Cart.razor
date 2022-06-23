@@ -34,7 +34,7 @@
 
     protected override async void OnInitialized()
     {
-        login = await session.GetItemAsync<string>("user");
+        login = await session.GetItemAsync<string>("client");
         clientid = EtoBasa.clients.Where(x => x.Login == login).FirstOrDefault().Id;
         StateHasChanged();
     }
