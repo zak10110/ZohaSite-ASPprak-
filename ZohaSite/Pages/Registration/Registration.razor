@@ -1,8 +1,9 @@
 ﻿@page "/registration2"
 @inject NavigationManager nav;
+@inject Blazored.LocalStorage.ILocalStorageService session;
 @using ZohaSite;
 
-<form action="action_page.php">
+<form>
     <div class="container">
         <h1>Register</h1>
         <hr>
@@ -21,10 +22,11 @@
     string login = string.Empty;
     string password = string.Empty;
 
-    public void Regist()
+    public async void Regist()
     {
-        if (ClientValidation.SimpleValid(login) == true && ClientValidation.SimpleValid(password) == true)
+        if (ClientValidation.SimpleValid(login) == true && ClientValidation.SimpleValid(password) == true&& ClientValidation.ExistingLogin(login)==true&& password.Length>=8&&password.Length<=15&&login.Length>=4&&login.Length<=15)
         {
+            await session.SetItemAsync("client", login);
             EtoBasa.AddUser(login, Password.MakeHash(password), true);
             nav.NavigateTo("/Login/");
         }

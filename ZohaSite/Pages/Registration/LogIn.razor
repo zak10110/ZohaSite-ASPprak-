@@ -14,7 +14,7 @@
     <label for="psw"><b>Password</b></label>
     <input @bind-value="password" type="password" placeholder="Enter Password" name="psw" required>
     <hr>
-    <button @onclick="((args)=>IsAdmin(login))" class="btn-dark btnlogin">Login</button>
+    <button @onclick="((args)=>Enter(login))" class="btn-dark btnlogin">Login</button>
     <NavLink href="/registration2">
         <button type="submit" class="btn btn-dark btnlogin">Do not Have An Accaunt?</button>
     </NavLink>
@@ -27,9 +27,9 @@
 
     string login = string.Empty;
     string password = string.Empty;
-    public async void IsAdmin(string login)
+    public async void Enter(string login)
     {
-        await session.SetItemAsync("user", login);
+       
         foreach (var item in EtoBasa.clients)
         {
             if (item.Login == login)
@@ -38,7 +38,7 @@
                 {
                     if (item.IsAdmin)
                     {
-
+                        await session.SetItemAsync("client", login);
                         nav.NavigateTo("/adminpanel/");
 
                     }

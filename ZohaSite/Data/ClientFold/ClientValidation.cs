@@ -3,6 +3,7 @@
     public static class ClientValidation
     {
         public static List<string> ForbiddenSymbols = new List<string>() {"!","@","$","%","^","&","*","(",")","-","+","=","?","."};
+        private static bool issame;
 
         public static bool SimpleValid(string any)
         {
@@ -29,6 +30,21 @@
                 return false;
             }
 
+        }
+
+
+        public static bool ExistingLogin(string Login)
+        {
+            foreach (var item in EtoBasa.clients)
+            {
+                if (Login==item.Login)
+                {
+                    break;
+                    return false;
+                }
+
+            }
+            return true;
         }
 
 

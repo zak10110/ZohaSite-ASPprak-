@@ -8,10 +8,14 @@ using ZohaSite;
 
 var builder = WebApplication.CreateBuilder(args);
 EtoBasa.CreateDataBase();
+
+builder.Services.AddBlazoredLocalStorage();
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddBlazoredLocalStorage();
+
+
+
 
 var app = builder.Build();
 

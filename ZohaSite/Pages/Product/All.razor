@@ -29,11 +29,17 @@
 
     int clientid;
     string login = string.Empty;
-    public async void AddToCart(int Id)
+    public async void AddToCart(int ID)
     {
-        login = await session.GetItemAsync<string>("user");
-        clientid = EtoBasa.clients.Where(x => x.Login == login).FirstOrDefault().Id;
-        EtoBasa.AddCart(new ZohaSite.Cart {Name = EtoBasa.productcs[Id-1].Name, Price = EtoBasa.productcs[Id-1].Price, Img = EtoBasa.productcs[Id-1].Img,  ProductID = Id-1, UserID = clientid });
+        login = await session.GetItemAsync<string>("client");
+        foreach (var item in EtoBasa.clients)
+        {
+            if (item.Login==login)
+            {
+                clientid = item.Id;
+            }
+        }
+        EtoBasa.AddCart(new ZohaSite.Cart {Name = EtoBasa.productcs[ID-1].Name, Price = EtoBasa.productcs[ID-1].Price, Img = EtoBasa.productcs[ID-1].Img,  ProductID = ID-1, UserID = clientid });
         EtoBasa.InicializeLists();
     }
 
