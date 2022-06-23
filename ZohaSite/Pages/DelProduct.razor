@@ -1,0 +1,42 @@
+﻿@page "/delprod"
+
+
+
+
+
+<select @bind="prodid">
+    @foreach (var item in EtoBasa.productcs)
+    {
+        <option value="@item.Id">@item.Name | @item.Id</option>
+    }
+</select>
+
+@if (prodid != -1)
+{
+    Productc productc = EtoBasa.productcs.FirstOrDefault(x => x.Id == prodid);
+    <div class="product-item">
+        <img src="@productc.Img">
+        <div class="product-list">
+            <h3>@productc.Name</h3>
+            <span class="price">@productc.Price </span>
+        </div>
+    </div>
+    <button class="btn btn-dark" @onclick="@((args)=>removeitem(productc))">Del</button>
+}
+
+@code
+{
+    int prodid = -1;
+    private void removeitem(Productc furniture)
+    {
+        EtoBasa.ProductRemove(furniture);
+        EtoBasa.InicializeLists();
+        prodid = -1;
+    }
+}
+
+
+
+
+
+

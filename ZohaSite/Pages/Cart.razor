@@ -1,0 +1,43 @@
+﻿@using Blazored.LocalStorage;
+@page "/Basket"
+@inject Blazored.LocalStorage.ILocalStorageService session;
+
+
+
+<div class="main_products_cards">
+    @if (clientid != 0)
+    {
+        @foreach (var item in EtoBasa.carts)
+        {
+            @if (clientid != 0 && item.UserID == clientid)
+            {
+                <div class="product-item">
+                    <img src="@item.Img">
+                    <div class="product-list">
+                        <h3>@item.Name</h3>
+                        <span class="price">@item.Price </span>
+                    </div>
+                </div>
+            }
+        }
+    }
+</div>
+
+
+
+
+@code {
+   string login = string.Empty;
+   int clientid;
+
+
+    protected override async void OnInitialized()
+    {
+        login = await session.GetItemAsync<string>("user");
+        clientid = EtoBasa.clients.Where(x => x.Login == login).FirstOrDefault().Id;
+        StateHasChanged();
+    }
+
+
+
+}

@@ -1,8 +1,11 @@
-﻿@page "/reg"
+﻿@using Blazored.LocalStorage;
+@page "/reg"
 @inherits LayoutComponentBase
 @inject NavigationManager nav;
+@inject Blazored.LocalStorage.ILocalStorageService session;
 
-   <div class="container">
+
+<div class="container">
     <h1>Login</h1>
     <hr>
     <label for="email"><b>Login</b></label>
@@ -13,11 +16,11 @@
     <hr>
     <button @onclick="IsAdmin" class="btn-dark btnlogin">Login</button>
     <NavLink href="/registration2">
-    <button  type="submit" class="btn btn-dark btnlogin">Do not Have An Accaunt?</button>
+        <button type="submit" class="btn btn-dark btnlogin">Do not Have An Accaunt?</button>
     </NavLink>
-  </div>
+</div>
 
- 
+
 
 
 @code {
@@ -26,25 +29,25 @@
     string password = string.Empty;
 
 
-    public void IsAdmin()
+    public async void IsAdmin()
     {
-
+        await session.SetItemAsync("user", login);
         foreach (var item in EtoBasa.clients)
         {
-            if (item.Login==login)
+            if (item.Login == login)
             {
-                if (Paswordd.IsUserPassValid(password,item.Pass))
+                if (Paswordd.IsUserPassValid(password, item.Pass))
                 {
                     if (item.IsAdmin)
                     {
 
-                         nav.NavigateTo("/adminpanel/");
-                        
+                        nav.NavigateTo("/adminpanel/");
+
                     }
                 }
-                
+
             }
-            
+
         }
 
 

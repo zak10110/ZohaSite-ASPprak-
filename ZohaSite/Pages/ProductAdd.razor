@@ -1,0 +1,33 @@
+﻿@page "/addproduct"
+
+
+<div class="container">
+    <h1>AddProduct</h1>
+    <hr>
+    <label ><b>Product Name</b></label>
+    <input @bind-value="Name" type="text" placeholder="Enter Product Name" name="email" required>
+
+    <label><b>IMG Link</b></label>
+    <input @bind-value="IMG"  placeholder="Enter IMG Link"  required>
+    <label><b>Product Price</b></label>
+    <input @bind-value="Price"  placeholder="Enter Product Price"  required>
+    <label><b>Category Name</b></label>
+    <input @bind-value="Category"  placeholder="Enter Category Name"  required>
+    <hr>
+    <button @onclick="AddProduct" class="btn-dark btnlogin">Add</button>
+</div>
+
+@code {
+    string IMG = string.Empty;
+    string Name = string.Empty;
+    string Price = string.Empty;
+    string Category = string.Empty;
+
+    public void AddProduct()
+    {
+        EtoBasa.AddProduct(Price, IMG, Name,Category);
+    }
+
+
+
+}

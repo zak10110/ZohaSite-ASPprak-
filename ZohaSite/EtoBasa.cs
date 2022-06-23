@@ -38,6 +38,15 @@ namespace ZohaSite
                 InicializeLists();
             }
         }
+        public static void ProductRemove(Productc furniture)
+        {
+            using (MyDataBase db = new MyDataBase())
+            {
+                db.Productc.Remove(furniture);
+                db.SaveChanges();
+                InicializeLists();
+            }
+        }
         public static void AddCart(Cart basket)
         {
             using (MyDataBase db = new MyDataBase())

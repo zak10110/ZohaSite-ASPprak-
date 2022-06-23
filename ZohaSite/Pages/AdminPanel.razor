@@ -1,9 +1,34 @@
 ﻿
 @page "/adminpanel"
+@inject NavigationManager nav;
+
+<div>
+
+    <button @onclick="AddNewProduct" class=" adminsbtn btn-dark btnlogin">AddProduct</button>
+    <button @onclick="DelProduct" class=" adminsbtn btn-dark btnlogin">DelProduct</button>
 
 
+
+</div>
 
 
 @code {
+    public void AddNewProduct()
+    {
+
+        nav.NavigateTo("/addproduct/");
+
+    }
+
+    public void DelProduct()
+    {
+        
+        nav.NavigateTo("/delprod/");
+
+
+    }
+
+
+
 
 }
