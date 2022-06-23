@@ -29,7 +29,8 @@
 
     int clientid;
     string login = string.Empty;
-    
+    int h;
+
     public async void AddToBasket(int Id)
     {
         login = await session.GetItemAsync<string>("user");
