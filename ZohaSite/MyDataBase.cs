@@ -13,12 +13,12 @@ namespace ZohaSite
         public MyDataBase()
         {
             //Database.EnsureDeleted();
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=zohabasa.c1nvt4fjwn7j.us-east-1.rds.amazonaws.com;Initial Catalog=EtoBasa;User ID=admin;Password=339856RPzq");
+            optionsBuilder.UseSqlServer("Data Source=aspdatabase.cxp0pm4y0ro5.us-east-1.rds.amazonaws.com;Initial Catalog=EtoBasa;User ID=admin;Password=qwerty123");
 
         }
 

@@ -47,7 +47,7 @@ namespace ZohaSite
             }
         }
 
-        public static void AddFurniture(string price, string image, string name, int categoryid)
+        public static void AddProfuct(string price, string image, string name)
         {
             using (MyDataBase db = new MyDataBase())
             {

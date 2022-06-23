@@ -2,9 +2,10 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using ZohaSite.Data;
 using System.Security.Cryptography;
+using ZohaSite;
 
 var builder = WebApplication.CreateBuilder(args);
-
+EtoBasa.CreateDataBase();
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
