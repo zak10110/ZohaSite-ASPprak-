@@ -1,4 +1,4 @@
-﻿@using Blazored.LocalStorage;
+﻿
 @page "/reg"
 @inherits LayoutComponentBase
 @inject NavigationManager nav;
@@ -14,7 +14,7 @@
     <label for="psw"><b>Password</b></label>
     <input @bind-value="password" type="password" placeholder="Enter Password" name="psw" required>
     <hr>
-    <button @onclick="IsAdmin" class="btn-dark btnlogin">Login</button>
+    <button @onclick="((args)=>IsAdmin(login))" class="btn-dark btnlogin">Login</button>
     <NavLink href="/registration2">
         <button type="submit" class="btn btn-dark btnlogin">Do not Have An Accaunt?</button>
     </NavLink>
@@ -27,16 +27,14 @@
 
     string login = string.Empty;
     string password = string.Empty;
-
-
-    public async void IsAdmin()
+    public async void IsAdmin(string login)
     {
         await session.SetItemAsync("user", login);
         foreach (var item in EtoBasa.clients)
         {
             if (item.Login == login)
             {
-                if (Paswordd.IsUserPassValid(password, item.Pass))
+                if (Password.IsUserPassValid(password, item.Pass))
                 {
                     if (item.IsAdmin)
                     {

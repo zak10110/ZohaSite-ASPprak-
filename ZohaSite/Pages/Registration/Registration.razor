@@ -1,0 +1,40 @@
+﻿@page "/registration2"
+@inject NavigationManager nav;
+@using ZohaSite;
+
+
+
+
+
+<form action="action_page.php">
+    <div class="container">
+        <h1>Register</h1>
+        <hr>
+
+        <label for="email"><b>Login</b></label>
+        <input @bind-value="login" type="text" placeholder="Enter Login" name="email" required>
+        <label for="psw"><b>Password</b></label>
+        <input @bind-value="password" type="password" placeholder="Enter Password" required>
+        <hr>
+        <button @onclick="Regist" class="btn-dark btnlogin">Register</button>
+    </div>
+</form>
+
+@code
+{
+    string login = string.Empty;
+    string password = string.Empty;
+
+    public void Regist()
+    {
+
+        EtoBasa.AddUser(login,Password.MakeHash(password), false);
+        nav.NavigateTo("/reg/");
+
+
+
+    }
+
+
+
+}

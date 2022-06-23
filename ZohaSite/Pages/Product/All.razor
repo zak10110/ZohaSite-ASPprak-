@@ -15,7 +15,7 @@
         <div class="btnNnfText">
             <h5 class="text">@item.Name</h5>
             <button class="btn btn-dark">Add To Basket</button>
-            <h5 @onclick="((args)=>AddToBasket(item.Id))" class="btnNnfText">@item.Price</h5>
+            <h5 @onclick="((args)=>AddToCart(item.Id))" class="btnNnfText">@item.Price</h5>
         </div>
 
     </div>
@@ -29,9 +29,7 @@
 
     int clientid;
     string login = string.Empty;
-    int h;
-
-    public async void AddToBasket(int Id)
+    public async void AddToCart(int Id)
     {
         login = await session.GetItemAsync<string>("user");
         clientid = EtoBasa.clients.Where(x => x.Login == login).FirstOrDefault().Id;

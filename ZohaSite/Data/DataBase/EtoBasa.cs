@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ZohaSite;
+
 namespace ZohaSite
 {
     public static class EtoBasa
@@ -29,7 +31,7 @@ namespace ZohaSite
             }
         }
 
-        public static void AddUser(string login, string password,bool IsAdmin)
+        public static void AddUser(string login, string password, bool IsAdmin)
         {
             using (MyDataBase db = new MyDataBase())
             {
@@ -57,11 +59,11 @@ namespace ZohaSite
             }
         }
 
-        public static void AddProduct(string price, string image, string name,string category)
+        public static void AddProduct(string price, string image, string name, string category)
         {
             using (MyDataBase db = new MyDataBase())
             {
-                db.Productc.Add(new Productc { Price = price, Img = image, Name = name,Category=category });
+                db.Productc.Add(new Productc { Price = price, Img = image, Name = name, Category = category });
                 db.SaveChanges();
                 InicializeLists();
             }
