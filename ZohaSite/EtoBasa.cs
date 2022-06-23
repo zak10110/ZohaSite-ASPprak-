@@ -47,11 +47,11 @@ namespace ZohaSite
             }
         }
 
-        public static void AddProfuct(string price, string image, string name)
+        public static void AddProduct(string price, string image, string name,string category)
         {
             using (MyDataBase db = new MyDataBase())
             {
-                db.Productc.Add(new Productc { Price = price, Img = image, Name = name });
+                db.Productc.Add(new Productc { Price = price, Img = image, Name = name,Category=category });
                 db.SaveChanges();
                 InicializeLists();
             }
