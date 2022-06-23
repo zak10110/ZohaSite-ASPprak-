@@ -49,6 +49,15 @@ namespace ZohaSite
                 InicializeLists();
             }
         }
+        public static void ClientRemove(Client client)
+        {
+            using (MyDataBase db = new MyDataBase())
+            {
+                db.Client.Remove(client);
+                db.SaveChanges();
+                InicializeLists();
+            }
+        }
         public static void AddCart(Cart basket)
         {
             using (MyDataBase db = new MyDataBase())

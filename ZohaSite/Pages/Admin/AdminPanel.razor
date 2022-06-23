@@ -3,12 +3,9 @@
 @inject NavigationManager nav;
 
 <div>
-
     <button @onclick="AddNewProduct" class=" adminsbtn btn-dark btnlogin">AddProduct</button>
     <button @onclick="DelProduct" class=" adminsbtn btn-dark btnlogin">DelProduct</button>
-
-
-
+    <button @onclick="DBClear" class=" adminsbtn btn-dark btnlogin">DelClient</button>
 </div>
 
 
@@ -22,9 +19,15 @@
 
     public void DelProduct()
     {
-        
+
         nav.NavigateTo("/delprod/");
 
+
+    }
+    public void DBClear()
+    {
+        
+        nav.NavigateTo("/clientclear/");
 
     }
 

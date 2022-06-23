@@ -6,7 +6,6 @@
     <hr>
     <label ><b>Product Name</b></label>
     <input @bind-value="Name" type="text" placeholder="Enter Product Name" name="email" required>
-
     <label><b>IMG Link</b></label>
     <input @bind-value="IMG"  placeholder="Enter IMG Link"  required>
     <label><b>Product Price</b></label>
@@ -25,7 +24,10 @@
 
     public void AddProduct()
     {
-        EtoBasa.AddProduct(Price, IMG, Name,Category);
+        if (ClientValidation.SimpleValid(IMG)==true&&ClientValidation.SimpleValid(Name)==true&&ClientValidation.SimpleValid(Category)==true&&Price!=null)
+        {
+            EtoBasa.AddProduct(Price, IMG, Name,Category);
+        }
     }
 
 

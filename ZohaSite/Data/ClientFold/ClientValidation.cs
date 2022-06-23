@@ -1,0 +1,41 @@
+﻿namespace ZohaSite
+{
+    public static class ClientValidation
+    {
+        public static List<string> ForbiddenSymbols = new List<string>() {"!","@","$","%","^","&","*","(",")","-","+","=","?","."};
+
+        public static bool SimpleValid(string any)
+        {
+
+            if (any != string.Empty && !any.Contains(' ')&& any != null)
+            {
+                foreach (var item in ForbiddenSymbols)
+                {
+                    if (!any.Contains(item))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    
+                    }
+                }
+                return false;
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
+
+
+
+
+
+    }
+}

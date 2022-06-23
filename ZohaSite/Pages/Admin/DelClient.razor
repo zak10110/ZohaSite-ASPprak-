@@ -1,0 +1,32 @@
+﻿@page "/clientclear"
+
+
+<select @bind="clientid">
+    @foreach (var item in EtoBasa.clients)
+    {
+        <option value="@item.Id">UserLogin: @item.Login | UserID:@item.Id</option>
+    }
+</select>
+
+@if (clientid != -1)
+{
+    Client client = EtoBasa.clients.FirstOrDefault(x => x.Id == clientid);
+    <div class="product-item">
+        <div class="product-list">
+            <h3>@client.Login</h3>
+            <span class="price">Admin:@client.IsAdmin </span>
+        </div>
+    </div>
+    <button class="btn btn-dark" @onclick="@((args)=>removeitem(client))">Remove</button>
+}
+
+@code
+{
+    int clientid = -1;
+    private void removeitem( Client client)
+    {
+        EtoBasa.ClientRemove(client);
+        EtoBasa.InicializeLists();
+        clientid = -1;
+    }
+}
