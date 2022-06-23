@@ -1,4 +1,4 @@
-﻿@page "/Registration2"
+﻿@page "/registration2"
 @inject NavigationManager nav;
 
 
@@ -8,13 +8,11 @@
     <hr>
 
     <label for="email"><b>Login</b></label>
-    <input @bind-value="login" type="text" placeholder="Enter Login" name="email" required>
-
+    <input @bind-value="login"type="text" placeholder="Enter Login" name="email" required>
     <label for="psw"><b>Password</b></label>
-    <input @bind-value="password" type="password" placeholder="Enter Password" name="psw" required>
-
+    <input @bind-value="password" type="password" placeholder="Enter Password" required>
     <hr>
-    <button type="submit" class="btn btn-dark btnlogin">Register</button>
+    <button @onclick="Registration"class="btn-dark btnlogin">Register</button>
   </div>
 </form>
 
@@ -22,13 +20,21 @@
 {
     string login = string.Empty;
     string password = string.Empty;
+   public void Registration()
+   {
+        try
+        {
+              EtoBasa.AddUser(login,Paswordd.MakeHash(password),false);
+              nav.NavigateTo("/reg/");
+        }
+        catch (Exception)
+        {
+            
 
+        }
+    
 
-     private void Registration()
-    {
-        EtoBasa.AddUser(login, password,false);
-        nav.NavigateTo("/Registration/");
-    }
+   }
 
 
 

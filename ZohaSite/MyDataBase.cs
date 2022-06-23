@@ -6,8 +6,8 @@ namespace ZohaSite
 {
     public class MyDataBase : DbContext
     {
+        public DbSet<Client> Client { get; set; } = null!;
         public DbSet<Productc> Productc { get; set; } = null!;
-        public DbSet<User> User { get; set; } = null!;
         public DbSet<Cart> Cart {get;set;}=null!;
 
         public MyDataBase()

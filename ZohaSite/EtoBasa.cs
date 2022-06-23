@@ -16,7 +16,7 @@ namespace ZohaSite
 
         public static List<Productc> productcs { get; set; } = new List<Productc>();
         public static List<Cart> carts { get; set; } = new List<Cart>();
-        public static List<User> users { get; set; } = new List<User>();
+        public static List<Client> clients { get; set; } = new List<Client>();
 
         public static void InicializeLists()
         {
@@ -24,7 +24,8 @@ namespace ZohaSite
             {
                 productcs = db.Productc.ToList();
                 carts = db.Cart.ToList();
-                users = db.User.ToList();
+                clients = db.Client.ToList();
+                db.SaveChanges();
             }
         }
 
@@ -32,7 +33,7 @@ namespace ZohaSite
         {
             using (MyDataBase db = new MyDataBase())
             {
-                db.User.Add(new User { Login = login, Pass = password, IsAdmin = IsAdmin });
+                db.Client.Add(new Client { Login = login, Pass = password, IsAdmin = IsAdmin });
                 db.SaveChanges();
                 InicializeLists();
             }

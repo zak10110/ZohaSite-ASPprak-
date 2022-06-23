@@ -1,5 +1,6 @@
-﻿@page "/Registration"
+﻿@page "/reg"
 @inherits LayoutComponentBase
+@inject NavigationManager nav;
 
    <div class="container">
     <h1>Login</h1>
@@ -10,9 +11,9 @@
     <label for="psw"><b>Password</b></label>
     <input @bind-value="password" type="password" placeholder="Enter Password" name="psw" required>
     <hr>
-    <button @onclick="IsAdmin" type="submit" class="btn btn-dark btnlogin">Login</button>
-    <NavLink href="/Registration2">
-    <button  type="submit" class="btn btn-dark btnlogin">Alredy Have An Accaunt?</button>
+    <button @onclick="IsAdmin" class="btn-dark btnlogin">Login</button>
+    <NavLink href="/registration2">
+    <button  type="submit" class="btn btn-dark btnlogin">Do not Have An Accaunt?</button>
     </NavLink>
   </div>
 
@@ -27,8 +28,24 @@
 
     public void IsAdmin()
     {
-        
 
+        foreach (var item in EtoBasa.clients)
+        {
+            if (item.Login==login)
+            {
+                if (Paswordd.IsUserPassValid(password,item.Pass))
+                {
+                    if (item.IsAdmin)
+                    {
+
+                         nav.NavigateTo("/adminpanel/");
+                        
+                    }
+                }
+                
+            }
+            
+        }
 
 
 
