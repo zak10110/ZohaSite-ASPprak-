@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using ZohaSite.Data;
+using System.Security.Cryptography;
 
 var builder = WebApplication.CreateBuilder(args);
 
